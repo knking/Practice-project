@@ -15,20 +15,19 @@
 .subMain{
     width: 500px;
     height: 250px;
-    border: 1px solid black;
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
-    padding-top: 15px;
+    gap: 25px;
+    padding: 15px;
 }
 .city-details{
     display: flex;
     gap: 20px;
-    padding-top: 10px;
 }
 .weather-details{
-    padding-top: 10px;
+   
     display: flex;
     gap: 20px;
 }
@@ -39,3 +38,15 @@
     align-items: center;
     gap: 5px;
 }
+.searchData{
+    border: 1px solid black;
+}
+.searchData input {
+    border: transparent;
+    padding: 5px;
+  }
+.searchData button {
+    border: transparent;
+    padding: 5px 15px;
+    cursor: pointer;
+  }
