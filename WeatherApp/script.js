@@ -31,5 +31,8 @@ console.log(data)
     cityName.innerText = city;
 
     humidity.innerText = data.current.humidity;
-
+    windSpeed.innerText = data.current.wind_kph;
+    temprature.innerText = data.current.temp_c;
+    image.src = data.current.condition.icon;
+    weatherStatus.innerText = data.current.condition.text;
 };
