@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
 import Counter from './Counter';
+import Todo from './HalfNoteApp';
 
 
 function SuperHeros() {
@@ -49,6 +50,7 @@ function App() {
    
       <SuperHeros/>
       <Counter/>
+    <Todo/>
     </>
   );
 }
