@@ -1,24 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
+
+
+function SuperHeros() {
+  let [hreo, setHero] = useState(["Superman", "Batman", "Ironman"])
+
+  const [name,setName] = useState(()=>"Spiderman")
+  const onAddName = ()=>{
+    setHero([...hreo,name])
+    setName("")
+  }
+  return (
+    <>
+      <ul>
+        {
+          hreo.map((h) => (
+            <li key={h}>{h}</li>
+          ))
+        }
+      </ul>
+      <input type='text' value={name} onChange={(e)=> setName(e.target.value)}></input>
+      <button onClick={onAddName}>Add Value</button>
+    </>
+  )
+}
+
+function Counter() {
+  let [count, setCount] = useState(0);
+
+  function Total() {
+    setCount(count+1)
+  }
+  return (
+    <>
+      <button onClick={Total}>
+        Total Count: {count}
+      </button>
+    </>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <h1>I am Learning react</h1>
+      <Counter />
+      <SuperHeros/>
+    </>
   );
 }
 
