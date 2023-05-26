@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
+import Counter from './Counter';
 
 
 function SuperHeros() {
@@ -26,28 +27,28 @@ function SuperHeros() {
   )
 }
 
-function Counter() {
-  let [count, setCount] = useState(0);
+// function Counter() {
+//   let [count, setCount] = useState(0);
 
-  function Total() {
-    setCount(count+1)
-  }
-  return (
-    <>
-      <button onClick={Total}>
-        Total Count: {count}
-      </button>
-    </>
-  )
-}
+//   function Total() {
+//     setCount(count+1)
+//   }
+//   return (
+//     <>
+//       <button onClick={Total}>
+//         Total Count: {count}
+//       </button>
+//     </>
+//   )
+// }
 
 function App() {
   return (
 
     <>
-      <h1>I am Learning react</h1>
-      <Counter />
+   
       <SuperHeros/>
+      <Counter/>
     </>
   );
 }
