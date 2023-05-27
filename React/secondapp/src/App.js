@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./Card";
 import Axios from 'axios'
 
@@ -15,6 +15,10 @@ const App = ()=>{
         const details = data.results[0]
         setDetails(details)
     }
+
+    useEffect(()=>{
+fetcgDetails()
+    },[])
     return(
         <div>
         Hello from App component 
