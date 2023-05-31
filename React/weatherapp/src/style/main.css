@@ -3,4 +3,25 @@
     margin: 0;
     box-sizing: border-box;
     background-color: #0b121e;
+    color: white;
+}
+.header{
+    max-width: 1180px;
+    margin-inline: auto;
+    padding: 15px;
+    border: 1px solid red;
+    gap: 10px;
+    
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+.left-section{
+width: 65vw;
+border: 1px solid green;
+}
+.right-section{
+    width: 35vw;
+    border: 1px solid yellow;
 }

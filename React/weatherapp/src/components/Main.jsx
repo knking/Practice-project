@@ -1,10 +1,20 @@
 
 import React from 'react'
-import '..style/main.css'
+import '../style/main.css'
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <>
+    <div className="header flex">
+      <div className="left-section">
+        left
+      </div>
+      <div className="right-section">
+        right
+      </div>
+    </div>
+    
+    </>
   )
 }
 
