@@ -1,10 +1,9 @@
 
-
-
+import Main from "./components/Main";
 function App() {
   return (
     <div className="App">
-      <h1>I am weather App</h1>
+      <main/>
     </div>
   );
 }
