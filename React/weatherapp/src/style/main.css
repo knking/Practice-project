@@ -20,6 +20,39 @@
 .left-section{
 width: 65vw;
 border: 1px solid green;
+flex-direction: column;
+}
+.left-section form{
+    width: 100%;
+   border: none;
+   padding: 2px;
+ 
+}
+#search{
+    padding: 16px 8px;
+    width: 100%;
+    background-color: #202b3c;
+    border-radius: 12px;
+    border: none;   
+}
+#search:focus{
+    outline: none;
+}
+.city-name-section{
+    border: 1px solid red;
+   padding: 8px 36px;
+   justify-content: space-between;
+}
+.city-details{
+    flex-direction: column;
+    gap: 5px;
+}
+.temperature{
+    margin-top:25px ;
+}
+.temperature p{
+    font-size: 40px;
+    font-weight: bold;
 }
 .right-section{
     width: 35vw;
