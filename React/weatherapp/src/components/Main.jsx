@@ -36,10 +36,38 @@ const Main = () => {
               <Todays />
             </div>
           </div>
+          <div className="wind-section">
+            <p>AIR CONDITIONS</p>
+            <div className="aircondition-section">
+              <div className="real-feel-section">
+                <div className="real">
+                  <p>Real Feel</p>
+                  <p className='real-feel'>30 C</p>
+                </div>
+                <div className="wind">
+                  <p>Wind</p>
+                  <p><span className='wind-speed'>3</span>km/h</p>
+                </div>
+              </div>
+              <div className="chanc-of-rain-section">
+                <div className="chance">
+                  <p>Chance Of Rain</p>
+                  <p><span>0</span>%</p>
+                </div>
+                <div className="uv-sec">
+                  <p>UV Index</p>
+                  <p className='uv'></p>
+                </div>
 
+              </div>
+            </div>
+          </div>
         </div>
         <div className="right-section">
-          right
+          <p>7-DAY FORECAST</p>
+          <div className="seven-days">
+            
+          </div>
         </div>
       </div>
 

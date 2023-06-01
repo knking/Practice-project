@@ -1,10 +1,11 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     color: white;
 }
-.header{
+
+.header {
     max-width: 1180px;
     margin-inline: auto;
     padding: 15px;
@@ -12,48 +13,58 @@
     gap: 10px;
     background-color: #0b121e;
 }
-.flex{
+
+.flex {
     display: flex;
     align-items: center;
 }
-.left-section{
-width: 65%;
-display: flex;
-flex-direction: column;
-gap: 20px;
+
+.left-section {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-.left-section form{
+
+.left-section form {
     width: 100%;
-   border: none;
-   padding: 2px;
- 
+    border: none;
+    padding: 2px;
+
 }
-#search{
+
+#search {
     padding: 16px 8px;
     width: 100%;
     background-color: #202b3c;
     border-radius: 12px;
-    border: none;   
+    border: none;
 }
-#search:focus{
+
+#search:focus {
     outline: none;
 }
-.city-name-section{
-   padding: 8px 36px;
-   justify-content: space-between;
+
+.city-name-section {
+    padding: 8px 36px;
+    justify-content: space-between;
 }
-.city-details{
+
+.city-details {
     flex-direction: column;
     gap: 5px;
 }
-.temperature{
-    margin-top:25px ;
+
+.temperature {
+    margin-top: 25px;
 }
-.temperature p{
+
+.temperature p {
     font-size: 40px;
     font-weight: bold;
 }
-.today{
+
+.today {
     width: 100%;
     display: flex;
     background-color: #202b3c;
@@ -61,18 +72,39 @@ gap: 20px;
     justify-content: center;
     gap: 30px;
     border-radius: 20px;
-    
     padding: 25px 30px;
 
-    }
-    .forcast{
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        background-color: #202b3c;
-    }
-.right-section{
+}
+
+.forcast {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #202b3c;
+}
+.wind-section{
+    width: 100%;
+    display: flex;
+    background-color: #202b3c;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 30px;
+    border-radius: 20px;
+}
+.aircondition-section{
+    display: flex;
+gap: 15px;
+padding: 10px 25px;
+    flex-direction: column;
+}
+.real-feel-section, .chanc-of-rain-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+.right-section {
     width: 35%;
     border: 1px solid yellow;
 }
