@@ -2,7 +2,6 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #0b121e;
     color: white;
 }
 .header{
@@ -11,16 +10,17 @@
     padding: 15px;
     border: 1px solid red;
     gap: 10px;
-    
+    background-color: #0b121e;
 }
 .flex{
     display: flex;
     align-items: center;
 }
 .left-section{
-width: 65vw;
-border: 1px solid green;
+width: 65%;
+display: flex;
 flex-direction: column;
+gap: 20px;
 }
 .left-section form{
     width: 100%;
@@ -39,7 +39,6 @@ flex-direction: column;
     outline: none;
 }
 .city-name-section{
-    border: 1px solid red;
    padding: 8px 36px;
    justify-content: space-between;
 }
@@ -55,13 +54,25 @@ flex-direction: column;
     font-weight: bold;
 }
 .today{
-    width: 65vw;
-    border: 1px solid white;
+    width: 100%;
+    display: flex;
     background-color: #202b3c;
-    border: 1px solid red;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 20px;
     
+    padding: 25px 30px;
+
+    }
+    .forcast{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #202b3c;
     }
 .right-section{
-    width: 35vw;
+    width: 35%;
     border: 1px solid yellow;
 }
