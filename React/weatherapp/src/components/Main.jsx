@@ -2,6 +2,7 @@
 import React from 'react'
 import '../style/main.css'
 import Todays from './Todays'
+import SevenDays from './SevenDays'
 
 // use hooks to display current city name when app loded
 
@@ -66,7 +67,13 @@ const Main = () => {
         <div className="right-section">
           <p>7-DAY FORECAST</p>
           <div className="seven-days">
-            
+            <SevenDays/>
+            <SevenDays/>
+            <SevenDays/>
+            <SevenDays/>
+            <SevenDays/>
+            <SevenDays/>
+            <SevenDays/>
           </div>
         </div>
       </div>

@@ -1,0 +1,9 @@
+.seven{
+    background-color: #202b3c;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.2px solid gray;
+    padding: 5px 0px;
+}

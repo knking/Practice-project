@@ -6,11 +6,13 @@
 }
 
 .header {
-    max-width: 1180px;
+    /* max-width: 1180px; */
+    width: 100vw;
+    height: 100vh;
     margin-inline: auto;
-    padding: 15px;
+    padding: 15px 50px;
     border: 1px solid red;
-    gap: 10px;
+    gap: 20px;
     background-color: #0b121e;
 }
 
@@ -20,7 +22,7 @@
 }
 
 .left-section {
-    width: 65%;
+    width: 63%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -106,5 +108,17 @@ padding: 10px 25px;
 }
 .right-section {
     width: 35%;
-    border: 1px solid yellow;
+    padding: 30px 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #202b3c;
+    gap: 20px;
+}
+.seven-days{
+width: 100%;
+display: flex;
+background-color: #202b3c;
+flex-direction: column;
+gap: 38px 0;
 }
