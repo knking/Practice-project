@@ -24,6 +24,13 @@ const Main = () => {
               <img src="" alt="Temperature logo" srcset="" />
             </div>
           </div>
+          <div className="today">
+            <p>TODAYS'S FORECAST</p>
+            <div className="forcast">
+
+            </div>
+          </div>
+
         </div>
         <div className="right-section">
           right
