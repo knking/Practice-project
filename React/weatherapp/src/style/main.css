@@ -28,20 +28,52 @@
     gap: 20px;
 }
 
-.left-section form {
+/* .left-section form {
+    width: 100%;
+    border: none;
+    padding: 2px;  
+
+} */
+/* .search-form{
     width: 100%;
     border: none;
     padding: 2px;
-
 }
-
+.search-form button{
+    border: transparent;
+    padding: 5px 15px;
+    cursor: pointer;
+}
 #search {
     padding: 16px 8px;
     width: 100%;
     background-color: #202b3c;
     border-radius: 12px;
     border: none;
+} */
+.search-form{
+    color: #ffffff;
+
 }
+.search-form input {
+    border: transparent;
+    padding: 16px 8px;
+    width: 90%;
+    background-color: #202b3c;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+.search-form button {
+    border: transparent;
+    padding: 16px 8px;
+    cursor: pointer;
+    width: 10%;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background-color: #202b3c;
+    color: #ffffff;
+  }
+
 
 #search:focus {
     outline: none;
