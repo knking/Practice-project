@@ -7,13 +7,20 @@ import SevenDays from './SevenDays'
 // use hooks to display current city name when app loded
 
 const Main = () => {
+
+
+  const fetchDeatis = async ()=>{
+    
+  }
+
+
   return (
     <>
       <div className="header flex">
         <div className="left-section">
           <form className='search-form'>
             <input type='text' placeholder='Search for ctiies' id='search'/>
-            <button>Search</button>
+            <button onClick={fetchDeatis}> Search</button>
           </form>
           <div className="city-name-section flex">
             <div className="city-details flex">
