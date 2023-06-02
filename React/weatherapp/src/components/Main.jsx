@@ -1,37 +1,44 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import '../style/main.css'
 import Todays from './Todays'
 import SevenDays from './SevenDays'
+import Axios from 'axios'
 
 // use hooks to display current city name when app loded
 
 const Main = () => {
 
+  const [apiData, setApiData] = useState({});
 
-  const fetchDeatis = async ()=>{
-    
+  const fetchDeatis = async (event) => {
+    event.preventDefault();
+    const { data } = await Axios.get('https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=delhi')
+
+    const apiData = data.location;
+    console.log(apiData)
+    setApiData(apiData);
   }
-
 
   return (
     <>
+    {/* <button onClick={fetchDeatis}>Searchjhhhhhhhh</button> */}
       <div className="header flex">
         <div className="left-section">
-          <form className='search-form'>
-            <input type='text' placeholder='Search for ctiies' id='search'/>
-            <button onClick={fetchDeatis}> Search</button>
+          <form className='search-form' onSubmit={fetchDeatis}>
+            <input type='text' placeholder='Search for ctiies' id='search' />
+            <button>Search</button>
           </form>
           <div className="city-name-section flex">
             <div className="city-details flex">
-              <h1 className='city-name'>Noida</h1>
+              <h1 className='city-name'>{apiData.name}</h1>
               <p className="chance-of-rain">chance of rain: <span>0</span>%</p>
               <div className="temperature">
                 <p className='temp'>31 c</p>
               </div>
             </div>
             <div className="weatherlogo">
-              <img src="" alt="Temperature logo" srcset="" />
+              <img src="" alt="Temperature logo"/>
             </div>
           </div>
           <div className="today">
@@ -75,13 +82,13 @@ const Main = () => {
         <div className="right-section">
           <p>7-DAY FORECAST</p>
           <div className="seven-days">
-            <SevenDays/>
-            <SevenDays/>
-            <SevenDays/>
-            <SevenDays/>
-            <SevenDays/>
-            <SevenDays/>
-            <SevenDays/>
+            <SevenDays />
+            <SevenDays />
+            <SevenDays />
+            <SevenDays />
+            <SevenDays />
+            <SevenDays />
+            <SevenDays />
           </div>
         </div>
       </div>
