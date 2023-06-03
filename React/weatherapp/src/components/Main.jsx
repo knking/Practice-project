@@ -9,11 +9,19 @@ import Axios from 'axios'
 
 const Main = () => {
 
+  const [val, setVal] = useState();
+   function fun(){
+setVal()
+console.log(val)
+  }
+
   const [apiData, setApiData] = useState({});
+
+  
 
   const fetchDeatis = async (event) => {
     event.preventDefault();
-    const { data } = await Axios.get('https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=delhi')
+    const { data } = await Axios.get('https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q={val}')
 
     const apiData = data.location;
     console.log(apiData)
@@ -22,11 +30,12 @@ const Main = () => {
 
   return (
     <>
-    {/* <button onClick={fetchDeatis}>Searchjhhhhhhhh</button> */}
+     <input type='text' placeholder='Search for ctiies' id='search' value={val} onChange={(e) => setVal(e.target.value)} />
+     <button onClick={fun}>HLOOOO</button>
       <div className="header flex">
         <div className="left-section">
           <form className='search-form' onSubmit={fetchDeatis}>
-            <input type='text' placeholder='Search for ctiies' id='search' />
+            {/* <input type='text' placeholder='Search for ctiies' id='search' value={val} onChange={(e) => setVal(e.target.value)} /> */}
             <button>Search</button>
           </form>
           <div className="city-name-section flex">
@@ -38,7 +47,7 @@ const Main = () => {
               </div>
             </div>
             <div className="weatherlogo">
-              <img src="" alt="Temperature logo"/>
+              <img src="" alt="Temperature logo" />
             </div>
           </div>
           <div className="today">
