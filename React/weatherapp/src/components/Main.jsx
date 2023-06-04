@@ -9,45 +9,49 @@ import Axios from 'axios'
 
 const Main = () => {
 
-  const [val, setVal] = useState();
-   function fun(){
-setVal()
-console.log(val)
-  }
-
-  const [apiData, setApiData] = useState({});
-
   
+  const [loc, setLoc] = useState({});
+  const [curr, setCurr] = useState({});
+  const [forcas, setForCas] = useState({});
+  const [cityName,setCityName] = useState("")
+
+  function addCity(event){
+setCityName(event.target.value)
+  }
 
   const fetchDeatis = async (event) => {
     event.preventDefault();
-    const { data } = await Axios.get('https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q={val}')
+    const { data } = await Axios.get(`https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=${cityName}`)
 
-    const apiData = data.location;
-    console.log(apiData)
-    setApiData(apiData);
+    const loc = data.location;
+    const curr =data.current;
+    const forCas = data.forecast ;
+    console.log(loc)
+    setLoc(loc)
+    setCurr(curr)
+    setForCas(forCas)
   }
 
   return (
     <>
-     <input type='text' placeholder='Search for ctiies' id='search' value={val} onChange={(e) => setVal(e.target.value)} />
-     <button onClick={fun}>HLOOOO</button>
       <div className="header flex">
         <div className="left-section">
           <form className='search-form' onSubmit={fetchDeatis}>
-            {/* <input type='text' placeholder='Search for ctiies' id='search' value={val} onChange={(e) => setVal(e.target.value)} /> */}
+          <input type='text'
+           placeholder='Search for ctiies' 
+           id='search' value={cityName} onChange={addCity} /> 
             <button>Search</button>
           </form>
           <div className="city-name-section flex">
             <div className="city-details flex">
-              <h1 className='city-name'>{apiData.name}</h1>
+              <h1 className='city-name'>{loc.name}</h1>
               <p className="chance-of-rain">chance of rain: <span>0</span>%</p>
               <div className="temperature">
                 <p className='temp'>31 c</p>
               </div>
             </div>
             <div className="weatherlogo">
-              <img src="" alt="Temperature logo" />
+              <img src={curr.condition?.icon} alt="Temperature logo" />
             </div>
           </div>
           <div className="today">
