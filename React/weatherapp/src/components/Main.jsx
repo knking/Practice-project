@@ -25,8 +25,7 @@ setCityName(event.target.value)
 
     const loc = data.location;
     const curr =data.current;
-    const forCas = data.forecast ;
-    console.log(loc)
+    const forCas = data.forecast.forecastday;
     setLoc(loc)
     setCurr(curr)
     setForCas(forCas)
@@ -47,22 +46,23 @@ setCityName(event.target.value)
               <h1 className='city-name'>{loc.name}</h1>
               <p className="chance-of-rain">chance of rain: <span>0</span>%</p>
               <div className="temperature">
-                <p className='temp'>31 c</p>
+                <p className='temp'>{curr.temp_c} <span>&#8451;</span></p>
               </div>
             </div>
-            <div className="weatherlogo">
+            <div className="weatherlogo flex">
               <img src={curr.condition?.icon} alt="Temperature logo" />
             </div>
           </div>
+
           <div className="today">
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
-              <Todays />
-              <Todays />
-              <Todays />
-              <Todays />
-              <Todays />
-              <Todays />
+              <Todays sendForcast={forcas[0]}/>
+              {/* <Todays sendForcast={forcas.forecastday} />
+              <Todays sendForcast={forcas.forecastday} />
+              <Todays sendForcast={forcas.forecastday} />
+              <Todays sendForcast={forcas.forecastday} />
+              <Todays sendForcast={forcas.forecastday} /> */}
             </div>
           </div>
           <div className="wind-section">

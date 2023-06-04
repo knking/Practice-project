@@ -97,7 +97,13 @@
     font-size: 40px;
     font-weight: bold;
 }
-
+.weatherlogo{
+    width: 100px;
+}
+.weatherlogo image{
+    width: 100%;
+    height: 100%;
+}
 .today {
     width: 100%;
     display: flex;
