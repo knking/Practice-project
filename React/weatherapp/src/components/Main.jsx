@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../style/main.css'
 import Todays from './Todays'
 import SevenDays from './SevenDays'
@@ -13,7 +13,7 @@ const Main = () => {
   const [loc, setLoc] = useState({});
   const [curr, setCurr] = useState({});
   const [forcas, setForCas] = useState({});
-  const [cityName,setCityName] = useState("")
+  const [cityName,setCityName] = useState("bihar")
 
   function addCity(event){
 setCityName(event.target.value)
@@ -30,6 +30,15 @@ setCityName(event.target.value)
     setCurr(curr)
     setForCas(forCas)
   }
+// const getLocation = (event)=>{
+// setCityName("bihar")
+// fetchDeatis(event)
+// }
+
+//   useEffect(()=>{
+// getLocation();
+//   })
+
 
   return (
     <>
@@ -58,11 +67,11 @@ setCityName(event.target.value)
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
               <Todays sendForcast={forcas[0]}/>
-              {/* <Todays sendForcast={forcas.forecastday} />
-              <Todays sendForcast={forcas.forecastday} />
-              <Todays sendForcast={forcas.forecastday} />
-              <Todays sendForcast={forcas.forecastday} />
-              <Todays sendForcast={forcas.forecastday} /> */}
+              <Todays sendForcast={forcas[0]}/>
+              <Todays sendForcast={forcas[0]}/>
+              <Todays sendForcast={forcas[0]}/>
+              <Todays sendForcast={forcas[0]}/>
+              <Todays sendForcast={forcas[0]}/>
             </div>
           </div>
           <div className="wind-section">
