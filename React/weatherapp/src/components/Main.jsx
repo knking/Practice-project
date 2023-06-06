@@ -29,7 +29,7 @@ setCityName(event.target.value)
     setLoc(loc)
     setCurr(curr)
     setForCas(forCas)
-    console.log(forCas)
+    console.log(forCas[0].date) // work on this 
     console.log(typeof(forCas))
   }
 // const getLocation = (event)=>{
