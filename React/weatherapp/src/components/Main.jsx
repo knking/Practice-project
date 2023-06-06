@@ -29,6 +29,8 @@ setCityName(event.target.value)
     setLoc(loc)
     setCurr(curr)
     setForCas(forCas)
+    console.log(forCas)
+    console.log(typeof(forCas))
   }
 // const getLocation = (event)=>{
 // setCityName("bihar")
