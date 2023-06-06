@@ -66,12 +66,13 @@ setCityName(event.target.value)
           <div className="today">
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
-              <Todays sendForcast={forcas[0]}/>
-              <Todays sendForcast={forcas[0]}/>
-              <Todays sendForcast={forcas[0]}/>
-              <Todays sendForcast={forcas[0]}/>
-              <Todays sendForcast={forcas[0]}/>
-              <Todays sendForcast={forcas[0]}/>
+              {/* <Todays sendForcast={forcas[0]}/> */}
+              <Todays time='10:30 PM' imgSrc={"https://"} temp="30.c"/>
+              <Todays time='11:30 PM' imgSrc={"https://"} temp="15.c"/>
+              <Todays time='12:30 PM' imgSrc={"https://"} temp="18.c"/>
+              <Todays time='01:30 PM' imgSrc={"https://"} temp="22.c"/>
+              <Todays time='02:30 PM' imgSrc={"https://"} temp="36.c"/>
+              <Todays time='03:30 PM' imgSrc={"https://"} temp="56.c"/>
             </div>
           </div>
           <div className="wind-section">
