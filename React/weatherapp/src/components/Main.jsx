@@ -12,8 +12,12 @@ const Main = () => {
   
   const [loc, setLoc] = useState({});
   const [curr, setCurr] = useState({});
-  const [forcas, setForCas] = useState({});
+  const [forCas, setForCas] = useState({});
   const [cityName,setCityName] = useState("bihar")
+
+  const [newtime,setNewTime] = useState([])
+  console.log("Outer Time")
+  console.log(newtime[4])
 
   function addCity(event){
 setCityName(event.target.value)
@@ -29,8 +33,18 @@ setCityName(event.target.value)
     setLoc(loc)
     setCurr(curr)
     setForCas(forCas)
-    console.log(forCas[0].date) // work on this 
-    console.log(typeof(forCas))
+
+    // console.log(forCas[0].date) // work on this 
+
+   
+    let newtime = forCas[0].hour;
+    console.log("inner Time")
+    console.log(newtime)
+    setNewTime(newtime)
+  
+    console.log((forCas[0].hour[0]?.time).slice(11,16))
+console.log("verify data ")
+    console.log(forCas)
   }
 // const getLocation = (event)=>{
 // setCityName("bihar")
@@ -69,12 +83,12 @@ setCityName(event.target.value)
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
               {/* <Todays sendForcast={forcas[0]}/> */}
-              <Todays time='10:30 PM' imgSrc={"https://"} temp="30.c"/>
-              <Todays time='11:30 PM' imgSrc={"https://"} temp="15.c"/>
-              <Todays time='12:30 PM' imgSrc={"https://"} temp="18.c"/>
-              <Todays time='01:30 PM' imgSrc={"https://"} temp="22.c"/>
-              <Todays time='02:30 PM' imgSrc={"https://"} temp="36.c"/>
-              <Todays time='03:30 PM' imgSrc={"https://"} temp="56.c"/>
+              <Todays time={newtime} imgSrc={"https://"} temp="30.c"/> 
+              {/* <Todays time={newtime[0]} imgSrc={"https://"} temp="15.c"/>
+              <Todays time={newtime[8]} imgSrc={"https://"} temp="18.c"/>
+              <Todays time={newtime[12]} imgSrc={"https://"} temp="22.c"/>
+              <Todays time={newtime[16]} imgSrc={"https://"} temp="36.c"/>
+              <Todays time={newtime[23]} imgSrc={"https://"} temp="56.c"/> */} 
             </div>
           </div>
           <div className="wind-section">

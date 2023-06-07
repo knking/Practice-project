@@ -3,7 +3,7 @@ import '../style/Todays.css'
 
 // const Todays = ({ sendForcast }) => {
 
-const Todays = ({ time="5:30 PM",imgSrc,temp}) => {
+const Todays = ({ time,imgSrc,temp}) => {
 
   // const dd = sendForcast?.hour[3]
   // const hr = sendForcast?.hour
