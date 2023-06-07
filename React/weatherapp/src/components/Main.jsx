@@ -12,13 +12,11 @@ const Main = () => {
   
   const [loc, setLoc] = useState({});
   const [curr, setCurr] = useState({});
-  const [forCas, setForCas] = useState({});
+  const [forcas, setForCas] = useState({});
   const [cityName,setCityName] = useState("bihar")
 
   const [newtime,setNewTime] = useState([])
-  console.log("Outer Time")
-  console.log(newtime[4])
-
+  
   function addCity(event){
 setCityName(event.target.value)
   }
@@ -36,13 +34,9 @@ setCityName(event.target.value)
 
     // console.log(forCas[0].date) // work on this 
 
-   
-    let newtime = forCas[0].hour;
-    console.log("inner Time")
-    console.log(newtime)
-    setNewTime(newtime)
+    setNewTime(forCas[0].hour[0])
   
-    console.log((forCas[0].hour[0]?.time).slice(11,16))
+    console.log((forCas[0]?.hour[0]?.time).slice(11,16))
 console.log("verify data ")
     console.log(forCas)
   }
@@ -83,7 +77,7 @@ console.log("verify data ")
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
               {/* <Todays sendForcast={forcas[0]}/> */}
-              <Todays time={newtime} imgSrc={"https://"} temp="30.c"/> 
+              <Todays time={newtime.time} imgSrc={"https://"} temp="30.c"/> 
               {/* <Todays time={newtime[0]} imgSrc={"https://"} temp="15.c"/>
               <Todays time={newtime[8]} imgSrc={"https://"} temp="18.c"/>
               <Todays time={newtime[12]} imgSrc={"https://"} temp="22.c"/>
@@ -121,7 +115,7 @@ console.log("verify data ")
         <div className="right-section">
           <p>7-DAY FORECAST</p>
           <div className="seven-days">
-            <SevenDays />
+            <SevenDays/>
             <SevenDays />
             <SevenDays />
             <SevenDays />
