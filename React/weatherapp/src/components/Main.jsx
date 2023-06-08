@@ -9,16 +9,16 @@ import Axios from 'axios'
 
 const Main = () => {
 
-  
+
   const [loc, setLoc] = useState({});
   const [curr, setCurr] = useState({});
   const [forcas, setForCas] = useState({});
-  const [cityName,setCityName] = useState("bihar")
+  const [cityName, setCityName] = useState("bihar")
 
-  const [newtime,setNewTime] = useState([])
-  
-  function addCity(event){
-setCityName(event.target.value)
+  const [newtime, setNewTime] = useState([])
+
+  function addCity(event) {
+    setCityName(event.target.value)
   }
 
   const fetchDeatis = async (event) => {
@@ -26,28 +26,27 @@ setCityName(event.target.value)
     const { data } = await Axios.get(`https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=${cityName}`)
 
     const loc = data.location;
-    const curr =data.current;
+    const curr = data.current;
     const forCas = data.forecast.forecastday;
     setLoc(loc)
     setCurr(curr)
     setForCas(forCas)
 
     // console.log(forCas[0].date) // work on this 
+    setNewTime(forCas[0]?.hour[0]?.time)
 
-    setNewTime(forCas[0].hour[0])
-  
-    console.log((forCas[0]?.hour[0]?.time).slice(11,16))
-console.log("verify data ")
+    console.log((forCas[0]?.hour[0]?.time).slice(11, 16))
+    console.log("verify data ")
     console.log(forCas)
   }
-// const getLocation = (event)=>{
-// setCityName("bihar")
-// fetchDeatis(event)
-// }
+  // const getLocation = (event)=>{
+  // setCityName("bihar")
+  // fetchDeatis(event)
+  // }
 
-//   useEffect(()=>{
-// getLocation();
-//   })
+  //   useEffect(()=>{
+  // getLocation();
+  //   })
 
 
   return (
@@ -55,9 +54,9 @@ console.log("verify data ")
       <div className="header flex">
         <div className="left-section">
           <form className='search-form' onSubmit={fetchDeatis}>
-          <input type='text'
-           placeholder='Search for ctiies' 
-           id='search' value={cityName} onChange={addCity} /> 
+            <input type='text'
+              placeholder='Search for ctiies'
+              id='search' value={cityName} onChange={addCity} />
             <button>Search</button>
           </form>
           <div className="city-name-section flex">
@@ -77,12 +76,12 @@ console.log("verify data ")
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
               {/* <Todays sendForcast={forcas[0]}/> */}
-              <Todays time={newtime.time} imgSrc={"https://"} temp="30.c"/> 
-              {/* <Todays time={newtime[0]} imgSrc={"https://"} temp="15.c"/>
-              <Todays time={newtime[8]} imgSrc={"https://"} temp="18.c"/>
-              <Todays time={newtime[12]} imgSrc={"https://"} temp="22.c"/>
-              <Todays time={newtime[16]} imgSrc={"https://"} temp="36.c"/>
-              <Todays time={newtime[23]} imgSrc={"https://"} temp="56.c"/> */} 
+              <Todays time={newtime.slice(10,19)} imgSrc={"https://"} temp="30.c" />
+              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
+              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
+              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
+              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
+              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
             </div>
           </div>
           <div className="wind-section">
@@ -115,7 +114,7 @@ console.log("verify data ")
         <div className="right-section">
           <p>7-DAY FORECAST</p>
           <div className="seven-days">
-            <SevenDays/>
+            <SevenDays />
             <SevenDays />
             <SevenDays />
             <SevenDays />
