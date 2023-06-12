@@ -8,6 +8,8 @@ function App() {
 
   const [data, setData] = useState({})
 
+  //below cpde is for random api user data 
+
   // useEffect(()=>{
   //   // setCardValue();
   // },[])
@@ -18,6 +20,10 @@ function App() {
   //   console.log(data.results[0])
 
   //   }
+
+
+  
+  //below code os for weather app
 
   const setCardValue = async () => {
     const { data } = await Axios.get('https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=bihar')
