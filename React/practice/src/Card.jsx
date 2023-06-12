@@ -10,8 +10,6 @@ const Card = ({imgSrc,locationA="bihar",currentA="44",forcastA="rainy",hourA="5"
     <p className="card-text">Current weather: {currentA}</p>
     <p className="card-text">forecast: {forcastA}</p>
     <p className="card-text">Date{hourA}</p>
-
-    <a href="#" className="btn btn-primary">Go somewhere</a>
   </div>
 </div>
     </>
