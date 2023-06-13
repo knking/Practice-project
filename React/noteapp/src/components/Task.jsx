@@ -1,13 +1,13 @@
 import React from 'react'
 import '../style/Task.css'
 
-const Task = () => {
+const Task = ({title,content}) => {
   return (
    <>
   <div className="task">
     <div className="notes">
-    <p>Title</p>
-    <span>Here is your nots</span>
+    <p>{title}</p>
+    <span>{content}</span>
     </div>
     <button>-</button>
   </div>

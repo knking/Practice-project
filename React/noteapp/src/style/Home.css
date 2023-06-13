@@ -13,10 +13,10 @@
     
 }
 input,textarea,button{
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.253);
-    margin: 15px;
+    margin: 10px 0;
 }
 button{
     border: none;
