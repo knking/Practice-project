@@ -16,7 +16,8 @@ const Home = () => {
       content:textData,
     }])
 
-    console.log(task)
+    setTitleData("");
+    setTextData("");
 
   }
   return (
