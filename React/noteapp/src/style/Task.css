@@ -1,0 +1,16 @@
+.task{
+    display: flex;
+    
+}
+.task > div{
+    width: 100%;
+}
+.task button{
+    border-radius: 100%;
+    font-size: 1.6rem;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

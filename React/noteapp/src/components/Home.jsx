@@ -1,5 +1,6 @@
 import React from 'react'
 import '../style/Home.css'
+import Task from './Task'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       </textarea>
       <button type="submit">ADD</button>
     </form>
+    <Task/>
    </div>
    
    </>

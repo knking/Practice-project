@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <>
      <div className='navbar'> 
-     <h1>Keep Your Notes</h1>
+     <p>Keep Your Notes</p>
      </div>
     </>
    
