@@ -20,6 +20,14 @@ const Home = () => {
     setTextData("");
 
   }
+
+  const deleteItem= (index)=>{
+const filteredArray = task.filter((val, idx)=>{
+return idx !== index;
+})
+console.log(filteredArray)
+setTask(filteredArray)
+  }
   return (
     <>
       <div className="container">
@@ -30,8 +38,9 @@ const Home = () => {
           <button type="submit">ADD</button>
         </form>
         {
-          task.map((item,value)=>(
-            <Task  key={value} title={item.title} content={item.content}/>
+          task.map((item,index)=>(
+            <Task  key={index} title={item.title} content={item.content} deleteTask={deleteItem}
+            index={index}/>
           ))
         }
       </div>
