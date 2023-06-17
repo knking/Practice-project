@@ -3,6 +3,7 @@ import '../style/Home.css'
 import Task from './Task'
 
 const Home = () => {
+  // const d = new Date();
 
   const [titleData, setTitleData] = useState('')
   const [textData, setTextData] = useState('')
@@ -21,13 +22,21 @@ const Home = () => {
 
   }
 
-  const deleteItem= (index)=>{
+const deleteItem= (index)=>{
 const filteredArray = task.filter((val, idx)=>{
 return idx !== index;
 })
 console.log(filteredArray)
 setTask(filteredArray)
   }
+
+  
+const editItem=(index)=>{
+  const editArray = task.filter((val,idx)=>{
+return idx === index;
+  })
+  console.log(editArray)
+}
   return (
     <>
       <div className="container">
@@ -40,7 +49,7 @@ setTask(filteredArray)
         {
           task.map((item,index)=>(
             <Task  key={index} title={item.title} content={item.content} deleteTask={deleteItem}
-            index={index}/>
+            index={index} editTask={editItem}/>
           ))
         }
       </div>

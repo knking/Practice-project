@@ -1,5 +1,6 @@
 const input = document.getElementById('myInput')
 const btn  = document.getElementById('myBtn')
+const deleteBtn  = document.getElementById('delete')
 
 // const addText = ()=>{
 // const para = document.createElement('p') 
@@ -9,9 +10,32 @@ const btn  = document.getElementById('myBtn')
 // console.log(input.value)
 // }
 
+
+//////session storage
+
+// const btnClick = ()=>{
+//     sessionStorage.setItem("key1",input.value)
+// }
+// btn.addEventListener('click',btnClick)
+
+// deleteBtn.addEventListener('click',()=>{
+//     sessionStorage.removeItem("key1")
+// })
+
+// if(sessionStorage.getItem("key1")){
+//     alert(sessionStorage.getItem("key1"))
+// }
+
+
 const btnClick = ()=>{
-    sessionStorage.setItem("key1",input.value)
+    localStorage.setItem("key1",input.value)
 }
 btn.addEventListener('click',btnClick)
 
-alert(sessionStorage.getItem("key1"))
+deleteBtn.addEventListener('click',()=>{
+    localStorage.removeItem("key1")
+})
+
+if(localStorage.getItem("key1")){
+    alert(localStorage.getItem("key1"))
+}
