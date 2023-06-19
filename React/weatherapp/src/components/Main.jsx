@@ -9,46 +9,16 @@ import Axios from 'axios'
 
 const Main = () => {
 
+  const [cityName,setCityName] = useState();
 
-  const [loc, setLoc] = useState({});
-  const [curr, setCurr] = useState({});
-  const [forcas, setForCas] = useState({});
-  const [cityName, setCityName] = useState("bihar")
-
-  const [newtime, setNewTime] = useState([])
-
-  function addCity(event) {
-    setCityName(event.target.value)
-  }
+  const [data, setData] = useState({})
 
   const fetchDeatis = async (event) => {
     event.preventDefault();
     const { data } = await Axios.get(`https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=${cityName}`)
-
-    const loc = data.location;
-    const curr = data.current;
-    const forCas = data.forecast.forecastday;
-    setLoc(loc)
-    setCurr(curr)
-    setForCas(forCas)
-
-    // console.log(forCas[0].date) // work on this 
-    setNewTime(forCas[0]?.hour[0]?.time)
-
-    console.log((forCas[0]?.hour[0]?.time).slice(11, 16))
-    console.log("verify data ")
-    console.log(forCas)
+setData(data)
   }
-  // const getLocation = (event)=>{
-  // setCityName("bihar")
-  // fetchDeatis(event)
-  // }
-
-  //   useEffect(()=>{
-  // getLocation();
-  //   })
-
-
+  
   return (
     <>
       <div className="header flex">
@@ -56,19 +26,19 @@ const Main = () => {
           <form className='search-form' onSubmit={fetchDeatis}>
             <input type='text'
               placeholder='Search for ctiies'
-              id='search' value={cityName} onChange={addCity} />
+              id='search' value={cityName} onChange={(event)=>(setCityName(event.target.value))} />
             <button>Search</button>
           </form>
           <div className="city-name-section flex">
             <div className="city-details flex">
-              <h1 className='city-name'>{loc.name}</h1>
+              <h1 className='city-name'>{data.location?.name}</h1>
               <p className="chance-of-rain">chance of rain: <span>0</span>%</p>
               <div className="temperature">
-                <p className='temp'>{curr.temp_c} <span>&#8451;</span></p>
+                <p className='temp'>{data.current?.temp_c} <span>&#8451;</span></p>
               </div>
             </div>
             <div className="weatherlogo flex">
-              <img src={curr.condition?.icon} alt="Temperature logo" />
+              <img src={data.current?.condition?.icon} alt="Temperature logo" />
             </div>
           </div>
 
@@ -76,12 +46,26 @@ const Main = () => {
             <p>TODAYS'S FORECAST</p>
             <div className="forcast">
               {/* <Todays sendForcast={forcas[0]}/> */}
-              <Todays time={newtime.slice(10,19)} imgSrc={"https://"} temp="30.c" />
-              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
-              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
-              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
-              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
-              <Todays time={newtime} imgSrc={"https://"} temp="30.c" />
+              <Todays time={data.forecast?.forecastday[0]?.hour[5]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[5]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[5]?.temp_c} />
+
+              <Todays time={data.forecast?.forecastday[0]?.hour[8]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[8]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[8]?.temp_c} />
+
+              <Todays time={data.forecast?.forecastday[0]?.hour[11]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[11]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[11]?.temp_c} />
+
+               <Todays time={data.forecast?.forecastday[0]?.hour[14]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[14]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[14]?.temp_c} />
+
+               <Todays time={data.forecast?.forecastday[0]?.hour[17]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[17]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[17]?.temp_c} />
+
+               <Todays time={data.forecast?.forecastday[0]?.hour[20]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[20]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[20]?.temp_c} />
+
+               <Todays time={data.forecast?.forecastday[0]?.hour[23]?.time.slice(11,19)} imgSrc={data.forecast?.forecastday[0]?.hour[23]?.condition?.icon}
+               temp={data.forecast?.forecastday[0]?.hour[23]?.temp_c} />
             </div>
           </div>
           <div className="wind-section">
@@ -90,11 +74,11 @@ const Main = () => {
               <div className="real-feel-section">
                 <div className="real">
                   <p>Real Feel</p>
-                  <p className='real-feel'>30 C</p>
+                  <p className='real-feel'>{data.current?.feelslike_c}<span>&#8451;</span></p>
                 </div>
                 <div className="wind">
                   <p>Wind</p>
-                  <p><span className='wind-speed'>3</span>km/h</p>
+                  <p><span className='wind-speed'>{data.current?.wind_kph} </span> km/h</p>
                 </div>
               </div>
               <div className="chanc-of-rain-section">
@@ -104,7 +88,7 @@ const Main = () => {
                 </div>
                 <div className="uv-sec">
                   <p>UV Index</p>
-                  <p className='uv'></p>
+                  <p className='uv'>{data.current?.uv}</p>
                 </div>
 
               </div>
