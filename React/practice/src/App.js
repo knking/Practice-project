@@ -22,7 +22,7 @@ function App() {
   //   }
 
 
-  
+
   //below code os for weather app
 
   const setCardValue = async () => {
@@ -33,14 +33,14 @@ function App() {
     console.log(data.forecast)
     setData(data)
     console.log(data.forecast?.forecastday[0]?.day?.condition?.icon)
-    
+
   }
 
   return (
     <div className="App d-flex">
       <button className="btn btn-info" onClick={setCardValue}>Get Card Data</button>
 
-      <Card imgSrc={data.forecast?.forecastday[0]?.day?.condition?.icon} locationA={data.location?.name} currentA={data.current?.temp_c} forcastA={data.forcast?.forecastday[0]?.astro?.date} hourA={data.location?.localtime.slice(11,19)} />
+      <Card imgSrc={data.forecast?.forecastday[0]?.day?.condition?.icon} locationA={data.location?.name} currentA={data.current?.temp_c} forcastA={data.forcast?.forecastday[0]?.astro?.date} hourA={data.location?.localtime.slice(11, 19)} />
       {/* <Card imgSrc={data.picture?.thumbnail} title={data.location?.city} cardtext={data.email}/>
       <Card imgSrc={data.picture?.thumbnail} title={data.location?.city} cardtext={data.email}/>
       <Card imgSrc={data.picture?.thumbnail} title={data.location?.city} cardtext={data.email}/> */}
