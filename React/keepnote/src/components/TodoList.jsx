@@ -1,11 +1,20 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 
 import CreateTask from '../modals/CreateTask'
+import Card from './Card'
 
 const TodoList = () => {
 
     const [modal,setModal]= useState(false)
     const [tasklist,setTasklist]= useState([])
+
+    useEffect(()=>{
+        let arr =localStorage.getItem("tasklist")
+        if(arr){
+            let obj = JSON.parse(arr)
+            setTasklist(obj)
+        }
+    },[])
 
     const toggle = ()=>{
         setModal(!modal)
@@ -14,6 +23,7 @@ const TodoList = () => {
     const saveTask = (taskObj)=>{
 let tempArr =tasklist;
 tempArr.push(taskObj);
+localStorage.setItem("tasklist",JSON.stringify(tempArr))
 setTasklist(tempArr)
 setModal(false)
     }
@@ -27,7 +37,7 @@ setModal(false)
             </div>
             <div className="task-container">
 {
-    tasklist.map((obj)=><li>{obj.Name}</li>)
+    tasklist.map((obj,index)=><Card taskObj={obj} index={index}/>)
 }
             </div>
             <CreateTask toggle={toggle} modal={modal} save={saveTask}/>
