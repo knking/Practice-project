@@ -7,6 +7,7 @@ li{
     display: flex;
     color: black;
     align-items: center;
+    margin: 5px 0px;
 }
 .span-tag{
     flex: 1;
@@ -20,7 +21,4 @@ li button{
 }
 li button:hover{
     cursor: pointer;
-}
-.btn-1{
-
 }

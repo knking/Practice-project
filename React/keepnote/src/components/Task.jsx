@@ -1,10 +1,10 @@
 import React from 'react'
 import  '../Task.css'
-const Task = () => {
+const Task = ({addTask}) => {
   return (
     <>
     <li>
-        <span className='span-tag'>I lfkg oir ojrf op eg am task</span>
+        <span className='span-tag'>{addTask}</span>
         <button className='btn-1'>Delete</button>
         <button className='btn-2'>Edit</button>
     </li>
