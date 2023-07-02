@@ -1,12 +1,12 @@
 import React from 'react'
-
+import  '../Task.css'
 const Task = () => {
   return (
     <>
     <li>
-        <span>I am task</span>
-        <button>Delete</button>
-        <button>Edit</button>
+        <span className='span-tag'>I lfkg oir ojrf op eg am task</span>
+        <button className='btn-1'>Delete</button>
+        <button className='btn-2'>Edit</button>
     </li>
     </>
   )

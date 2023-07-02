@@ -1,0 +1,26 @@
+li{
+    list-style: none;
+    width: 100%;
+    padding: 2px 8px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    color: black;
+    align-items: center;
+}
+.span-tag{
+    flex: 1;
+    text-align: start;
+}
+li button{
+    margin:0px 6px;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+}
+li button:hover{
+    cursor: pointer;
+}
+.btn-1{
+
+}

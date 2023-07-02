@@ -6,9 +6,12 @@ import './App.css'
 function App() {
   return (
     <div className='main'>
+      <div className='notes'>
       <h2>Add Your Note </h2>
       
-     <Task/>
+      <Task/>
+      </div>
+      
     </div>
   );
 }

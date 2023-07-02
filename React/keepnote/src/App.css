@@ -2,14 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #282c34;
+    
 }
 .main{
-    margin: auto;
-    width: 500px;
     min-height: 100vh;
+    background-color: #282c34;
+    display: flex;
+    
+    justify-content: center;
+}
+.notes{
+   
+    width: 500px;
     border: 1px solid red;
     padding: 10px;
     text-align: center;
-    color: #ffffff;
+    color: #ffffff; 
 }
