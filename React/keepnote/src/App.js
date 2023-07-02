@@ -1,13 +1,14 @@
-import TodoList from "./components/TodoList";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Task from './components/Task.jsx';
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-     
-    <TodoList/>
+    <div className='main'>
+      <h2>Add Your Note </h2>
+      
+     <Task/>
     </div>
   );
 }
