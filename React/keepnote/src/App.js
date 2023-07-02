@@ -17,6 +17,7 @@ function App() {
 
   const handleDelete = (index)=>{
 const filteredArr = addTask.filter((val,idx)=>{
+  console.log(filteredArr)
 return idx!==index
 })
 setAddTask(filteredArr)

@@ -2,6 +2,14 @@ const input = document.getElementById('myInput')
 const btn  = document.getElementById('myBtn')
 const deleteBtn  = document.getElementById('delete')
 
+const it = document.getElementById('myBtn-1')
+
+
+const btnClick1 = ()=>{
+    alert("hli")
+     }
+    it.addEventListener('click',btnClick1)
+
 // const addText = ()=>{
 // const para = document.createElement('p') 
 // para.innerText= input.value;
