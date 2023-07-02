@@ -8,7 +8,10 @@ function App() {
     <div className='main'>
       <div className='notes'>
       <h2>Add Your Note </h2>
-      
+    <form>
+      <input type='text'></input>
+      <button type='submit'>Add</button>
+    </form>
       <Task/>
       </div>
       
