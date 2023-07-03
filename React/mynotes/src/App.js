@@ -11,6 +11,17 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(editId){
+      const editItem= todos.find((t)=>t.id ===editId)
+      const updatedTodos = todos.map((obj)=>obj.id ===editItem.id
+      ? {obj:obj.id,todo}:{id:obj.id, todo:obj.todo}
+      )
+
+      setTodos(updatedTodos)
+      setEditId(0)
+      setTodo("")
+      return
+    }
     if (todo !== '') {
       setTodos([{
         id: `${todo}-${Date.now()}`, todo
@@ -26,7 +37,8 @@ function App() {
 
 const handleEdit = (id)=>{
 const editTodo = todos.find((i)=> i.id ===id);
-setTodo(editTodo.todo)
+setTodo(editTodo.todo);
+setEditId(id);
 }
 
   return (
@@ -35,7 +47,7 @@ setTodo(editTodo.todo)
         <h1>Todo List App</h1>
         <form className='todoForm' onSubmit={handleSubmit} >
           <input type='text' placeholder='Enter Todo here...' value={todo} onChange={(e) => setTodo(e.target.value)} />
-          <button type='submit'>{editId?"Update":"Add"}</button>
+          <button type='submit'>{editId ? "Update" : "Add"}</button>
         </form>
         <ul className="altTodos">
           {
