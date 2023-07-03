@@ -9,19 +9,25 @@ function App() {
   const [singleTask, setSingleTask] = useState("")
   const [addTask, setAddTask] = useState([])
 
+  // Handle Add function 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setAddTask([...addTask,singleTask])
+    setAddTask([...addTask, singleTask])
     setSingleTask(" ")
   }
 
-  const handleDelete = (idx)=>{
-const filteredArr = addTask.filter((val,i)=>{
-  
-return i!==idx;
-})
-setAddTask(filteredArr)
+  //Handle delete function 
+  const handleDelete = (idx) => {
+    const filteredArr = addTask.filter((val, i) => {
+      return i !== idx;
+    })
+    setAddTask(filteredArr)
   }
+
+  //handle Edit funcation 
+const handleEdit= (index)=>{
+  setSingleTask(addTask[index])
+}
 
   return (
     <div className='main'>
@@ -35,10 +41,10 @@ setAddTask(filteredArr)
         </form>
         <h3>Your Notes</h3>
         {
-          addTask.map((val,idx)=>(
-          <Task key={idx} addTask={val} deleteTask={handleDelete} index={idx}/>
+          addTask.map((val, idx) => (
+            <Task key={idx} addTask={val} deleteTask={handleDelete} editTask ={handleEdit} index={idx}  />
           ))
-      
+
         }
 
       </div>
