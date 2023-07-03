@@ -8,10 +8,22 @@ function App() {
 
   const [singleTask, setSingleTask] = useState("")
   const [addTask, setAddTask] = useState([])
+  const [editId, setEditId] = useState(0);
 
   // Handle Add function 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(editId){
+      // const editTodo = addTask[editId]
+      const updateTodos = addTask.map((val,id)=>
+      id===editId?(id=editId, val=singleTask):(id=id,val=val)
+      )
+      console.log(updateTodos, editId)
+      setAddTask(updateTodos)
+      setEditId(0)
+      setSingleTask(" ")
+      return
+    }
     setAddTask([...addTask, singleTask])
     setSingleTask(" ")
   }
@@ -25,8 +37,11 @@ function App() {
   }
 
   //handle Edit funcation 
-const handleEdit= (index)=>{
-  setSingleTask(addTask[index])
+const handleEdit= (idx)=>{
+  setSingleTask(addTask[idx])
+  console.log(idx)
+  setEditId(idx)
+
 }
 
   return (
@@ -36,7 +51,7 @@ const handleEdit= (index)=>{
         <form onSubmit={handleSubmit}>
           <div className='form-div'>
             <input type='text' placeholder='Add Notes Here....' value={singleTask} onChange={(e) => (setSingleTask(e.target.value))}></input>
-            <button type='submit'>Add</button>
+            <button type='submit'>{editId?"Update":"Add"}</button>
           </div>
         </form>
         <h3>Your Notes</h3>
