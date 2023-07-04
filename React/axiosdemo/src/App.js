@@ -5,40 +5,53 @@ import './App.css'
 
 function App() {
 
-  const [userData, setUserData] = useState([]);
-  const user = async () => {
+  const [country, setCountry] = useState([])
+
+  const fetchCountry = async () => {
+
     try {
-      const userDetails = await axios.get('https://randomuser.me/api/')
-      console.log(userDetails.data.results[0].picture.large)
-      setUserData(userDetails.data.results[0])
+      const countries = await axios.get('https://countriesnow.space/api/v0.1/countries')
+      console.log(countries.data.data)
+      setCountry(countries.data.data)
     } catch (error) {
       console.log(error)
     }
 
   }
+
   useEffect(() => {
-    user();
+    fetchCountry();
   }, [])
 
   return (
     <div className="App">
       <div className='App-header'>
-       <h1>Select Your Home Town</h1>
-       <div>
-       <select>
-        <option disabled selected hidden>
-Select country
-        </option>
-       </select>
-       <select>
-        <option disabled selected hidden>
-Select City
-        </option>
-        <option>Bihar</option>
-        <option>UP</option>
-       </select>
-       <button>GO</button>
-       </div>
+        <h1>Select Your Home Town</h1>
+        <div>
+          {country && (
+            <select>
+              <option disabled selected hidden>
+                Select country
+              </option>
+              {
+                country.map((country)=>(
+                  <option>{country.country}</option>
+                ))
+              }
+            </select>
+          )
+
+          }
+
+          <select>
+            <option disabled selected hidden>
+              Select City
+            </option>
+            <option>Bihar</option>
+            <option>UP</option>
+          </select>
+          <button>GO</button>
+        </div>
       </div>
 
     </div>
