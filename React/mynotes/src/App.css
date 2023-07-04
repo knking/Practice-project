@@ -27,6 +27,7 @@ input{
   padding: 10px;
   border-radius: 20px;
   border: none;
+  outline: none;
 }
 button{
   border: none;
@@ -48,6 +49,7 @@ button{
   display: flex;
   width: 540px;
   align-items: center;
+  
 
 }
 .todoText{
