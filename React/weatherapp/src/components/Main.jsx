@@ -29,17 +29,24 @@ setData(data)
               id='search' value={cityName} onChange={(event)=>(setCityName(event.target.value))} />
             <button>Search</button>
           </form>
+          
           <div className="city-name-section flex">
             <div className="city-details flex">
               <h1 className='city-name'>{data.location?.name}</h1>
-              <p className="chance-of-rain">chance of rain: <span>0</span>%</p>
+              <p className="chance-of-rain">Chance of Rain: <span>{data.forecast?.forecastday[0]?.hour[0]?.chance_of_rain}</span>%</p>
               <div className="temperature">
                 <p className='temp'>{data.current?.temp_c} <span>&#8451;</span></p>
               </div>
             </div>
             <div className="weatherlogo flex">
               <img src={data.current?.condition?.icon} alt="Temperature logo" />
+              
             </div>
+            <div>
+            <h2 style={{marginBottom:"20px"}}>Country</h2>
+            <h3>{data.location.country}</h3>
+            </div>
+            
           </div>
 
           <div className="today">
@@ -84,7 +91,7 @@ setData(data)
               <div className="chanc-of-rain-section">
                 <div className="chance">
                   <p>Chance Of Rain</p>
-                  <p><span>0</span>%</p>
+                  <p><span>{data.forecast?.forecastday[0]?.hour[0]?.chance_of_rain}</span>%</p>
                 </div>
                 <div className="uv-sec">
                   <p>UV Index</p>

@@ -55,12 +55,13 @@
 .search-form{
     color: #ffffff;
     margin-top: 50px;
+    width: 100%;
 
 }
 .search-form input {
     border: transparent;
     padding: 16px 8px;
-    width: 90%;
+    width: 85%;
     background-color: #202b3c;
     border-top-left-radius: 12px;
     border-bottom-left-radius: 12px;
