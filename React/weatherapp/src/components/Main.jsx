@@ -95,7 +95,7 @@ setData(data)
             </div>
           </div>
         </div>
-        <div className="right-section">
+        {/* <div className="right-section">
           <p>7-DAY FORECAST</p>
           <div className="seven-days">
             <SevenDays />
@@ -106,7 +106,7 @@ setData(data)
             <SevenDays />
             <SevenDays />
           </div>
-        </div>
+        </div> */}
       </div>
 
     </>

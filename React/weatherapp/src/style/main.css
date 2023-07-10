@@ -8,7 +8,7 @@
 .header {
     /* max-width: 1180px; */
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     margin-inline: auto;
     padding: 15px 50px;
     gap: 20px;
@@ -21,10 +21,12 @@
 }
 
 .left-section {
-    width: 63%;
+    /* width: 63%; */
+    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: auto;
 }
 
 /* .left-section form {

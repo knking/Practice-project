@@ -10,12 +10,15 @@ function App() {
   const[singleCountry, setSingleCountry] = useState();
 
   const [cities,setCities] = useState([])
+  const [singleCity, setSingleCity] = useState("")
+  const [submit, setSubmit] = useState(false)
+
 
   const fetchCountry = async () => {
 
     try {
       const countries = await axios.get('https://countriesnow.space/api/v0.1/countries')
-      console.log(countries.data.data)
+      
       setCountries(countries.data.data)
     } catch (error) {
       console.log(error)
@@ -23,11 +26,19 @@ function App() {
 
   }
 
+  const submitHandler = ()=>{
+if(singleCountry && singleCity){
+  setSubmit(true)
+}
+  }
+
   useEffect(() => {
     fetchCountry();
   }, [])
 
   const fetchCities = (country)=>{
+    setSubmit(false)
+    setSingleCity(null)
     setSingleCountry(country)
 
     const findCities = countries.find((c)=>c.country === country)
@@ -45,7 +56,7 @@ function App() {
               </option>
               {
                 countries.map((country)=>(
-                  <option key={`${country.country}`} value={country.country}>{country.country}</option>
+                  <option key={`${country.country}-${Date.now()}`} value={country.country}>{country.country}</option>
                 ))
               }
             </select>
@@ -53,23 +64,24 @@ function App() {
           }
 
 {
-  cities && <select>
+  cities && 
+  <select onChange={(e)=>setSingleCity(e.target.value)} value={singleCity}>
   <option disabled selected hidden>
     Select City
   </option>
-
   {
     cities.map((city)=>(
-<option key={city}>{city}</option>
+<option value={city} key={`${city}-${Date.now()}`}>{city}</option>
     ))
   }
-  
-  
 </select>
-}
-          
-          <button>GO</button>
+} 
+          <button onClick={submitHandler}>GO</button>
         </div>
+        {
+          submit  &&  <h3>Your country is {singleCountry} and city is {singleCity}</h3>
+        }
+       
       </div>
 
     </div>
