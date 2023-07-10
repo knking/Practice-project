@@ -6,8 +6,8 @@
 }
 
 .header {
-    /* max-width: 1180px; */
-    width: 100vw;
+    max-width: 1180px;
+    /* width: 100vw; */
     min-height: 100vh;
     margin-inline: auto;
     padding: 15px 50px;
@@ -125,6 +125,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: #202b3c;
+    
 }
 .wind-section{
     width: 100%;

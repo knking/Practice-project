@@ -13,6 +13,7 @@ const Main = () => {
 
   const [data, setData] = useState({})
 
+
   const fetchDeatis = async (event) => {
     event.preventDefault();
     const { data } = await Axios.get(`https://api.weatherapi.com/v1/forecast.json?key=d2d2708ebffb48bfb3d124500232505&q=${cityName}`)
@@ -43,8 +44,8 @@ setData(data)
               
             </div>
             <div>
-            <h2 style={{marginBottom:"20px"}}>Country</h2>
-            <h3>{data.location.country}</h3>
+            <h2 style={{marginBottom:"10px"}}>Country</h2>
+            <p>{data.location?.country}</p>
             </div>
             
           </div>
