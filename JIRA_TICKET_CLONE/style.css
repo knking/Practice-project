@@ -79,6 +79,7 @@ body{
     top: calc((100vh - 40vh)/2);
     left: calc((100vw - 35vw)/2);
     display: none;
+    
 }
 .textarea-cont{
     height: 100%;
@@ -104,4 +105,32 @@ body{
     width: 55%;
     height: 3rem;
     text-align: center;
+}
+.border{
+    border: 3px solid #ecf0f1;
+}
+.ticket-cont{
+    height: 12rem;
+    width: 16rem;
+    background-color: aqua;
+}
+.ticket-color{
+    height: 1rem;
+    background-color: lightpink;
+}
+.ticket-id{
+    height: 2rem;
+    background-color: lightseagreen;
+    padding: 0.4rem;
+}
+.task-area{
+    height: calc(100% - 3rem);
+    background-color: blue;
+    padding: 0.5rem;
+}
+.main-cont{
+    display: flex;
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
