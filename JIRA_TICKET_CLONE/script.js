@@ -3,6 +3,7 @@ const addbtn = document.querySelector(".add-btn")
 let addFlag = false
 let modalCont = document.querySelector(".modal-cont")
 let mainCont = document.querySelector(".main-cont")
+let textArea = document.querySelector(".textarea-cont")
 
 addbtn.addEventListener("click",function (e){
     addFlag =!addFlag
@@ -13,13 +14,16 @@ addbtn.addEventListener("click",function (e){
     }
 })
 
-modalCont.addEventListener('keydown', (e) =>{
-    
-    if(e.key ==="shift"){
-        console.log("hi")
-        createTicket();
+modalCont.addEventListener('keydown',(e)=>{
+    if(e.key==="Shift"){
+        createTicket()
+        modalCont.style.display="none";
+        addFlag=false;
+        textArea.value= "";
     }
+
 })
+
 
 function createTicket(){
     let ticketCont = document.createElement("div");
