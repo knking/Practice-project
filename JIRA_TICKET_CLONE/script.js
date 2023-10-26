@@ -8,9 +8,38 @@ let mainCont = document.querySelector(".main-cont")
 let textArea = document.querySelector(".textarea-cont")
 let allPriortyColor = document.querySelectorAll(".priorty-color")
 let lockElem = document.querySelector(".ticket-lock")
+let toolBoxColors = document.querySelectorAll(".color")
 
 let lock = "fa-lock";
 let unlock = "fa-lock-open"
+
+let ticketsArr=[]
+for(let i=0;i<toolBoxColors.length;i++){
+    toolBoxColors[i].addEventListener('click',(e)=>{
+        let currentToolBoxColor=toolBoxColors[i].classList[0]
+        let filterTickets=ticketsArr.filter((ticketObj,idx) =>{
+            return currentToolBoxColor === ticketObj.ticketColor;
+        })
+        //remove previous tickets
+        let allTicketsCont = document.querySelectorAll(".ticket-cont")
+        for(let i=0;i<allTicketsCont.length;i++){
+            allTicketsCont[i].remove();
+        }
+        //Display filtered tickets
+        filterTickets.forEach((ticketObj,idx)=>{
+            createTicket(ticketObj.ticketColor, ticketObj.ticketTask,ticketObj.ticketId)
+        })
+    })
+    toolBoxColors[i].addEventListener('dblclick',(e)=>{
+        let allTicketsCont = document.querySelectorAll(".ticket-cont")
+        for(let i=0;i<allTicketsCont.length;i++){
+            allTicketsCont[i].remove();
+        }
+        ticketsArr.forEach((ticketObj,idx) =>{
+            createTicket(ticketObj.ticketColor, ticketObj.ticketTask, ticketObj.ticketId)
+        })
+    })
+}
 
 let colors = ["lightpink","lightblue","lightgreen","black"]
 let defalutlColor=colors[colors.length -1]
@@ -56,28 +85,32 @@ function generateRandomCharacterId(length) {
 
 modalCont.addEventListener('keydown',(e)=>{
     if(e.key==="Shift"){
-        let res = generateRandomCharacterId(5)
-        createTicket(defalutlColor,textArea.value,res)
-        modalCont.style.display="none";
+        createTicket(defalutlColor,textArea.value)
         addFlag=false;
-        textArea.value= "";
+        setModalToDefault()
+       
     }
 
 })
 
 
 function createTicket(ticketColor, ticketTask, ticketId){
+    let id = ticketId || generateRandomCharacterId(5)
     let ticketCont = document.createElement("div");
     ticketCont.setAttribute("class",'ticket-cont')
     ticketCont.innerHTML= `
     <div class="ticket-color ${ticketColor}"></div>
-    <div class="ticket-id">${ticketId}</div>
+    <div class="ticket-id">${id}</div>
     <div class="task-area">${ticketTask}</div>
     <div class="ticket-lock">
         <i class="fa-solid fa-lock"></i>
     </div>
     `;
     mainCont.appendChild(ticketCont);
+    if(!ticketId){
+        ticketsArr.push({ticketColor,ticketTask,ticketId:id})
+    }
+   
     handleRemove(ticketCont)
     handleLock(ticketCont)
     handleColor(ticketCont)
@@ -117,10 +150,20 @@ return currentTicketColor === color;
 })
 
 currentTicketColorIdx++;
-console.log(currentTicketColor, currentTicketColorIdx)
 let newTicketColorIdx= currentTicketColorIdx % colors.length;
 let newTicketColor = colors[newTicketColorIdx]
 ticketColor.classList.remove(currentTicketColor)
 ticketColor.classList.add(newTicketColor)
 })
+}
+
+function setModalToDefault(){
+    modalCont.style.display="none";
+    textArea.value= "";
+    defalutlColor=colors[colors.length-1]
+    allPriortyColor.forEach((prirprtyColorElement,i)=>{
+        prirprtyColorElement.classList.remove("border")
+    })
+    allPriortyColor[allPriortyColor.length-1].classList.add("border")
+    
 }
