@@ -4,11 +4,6 @@ import App from './App.jsx'
 import './index.css'
 
 
-// function App(){
-//   return(
-//     <h2>Custom React !</h2>
-//   )
-// }
 
 
 /* This code dose not work
