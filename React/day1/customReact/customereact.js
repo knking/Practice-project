@@ -1,27 +1,31 @@
+function customRender(reactElement, container){
+    /*
+    const domElement = document.createElement(reactElement.type)
+    domElement.innerHTML = reactElement.children
+    domElement.setAttribute('href', reactElement.props.href)
+    domElement.setAttribute('target', reactElement.props.target)
 
+    container.appendChild(domElement)
+    */
 
-function customRender(reactEleemnt,container){
-const domElement= document.createElement(reactEleemnt.type)
-domElement.innerHTML=reactEleemnt.children
-
-for (const prop in reactEleemnt.props) {
-if(prop==='children') continue
-domElement.setAttribute(prop,reactEleemnt.props[prop])
+    const domElement = document.createElement(reactElement.type)
+    domElement.innerHTML = reactElement.children
+    for (const prop in reactElement.props) {
+        if (prop === 'children') continue;
+        domElement.setAttribute(prop, reactElement.props[prop])
+    }
+    container.appendChild(domElement)
 }
 
-// domElement.setAttribute('href',reactEleemnt.props.href)
-// domElement.setAttribute('target',reactEleemnt.props.traget)
-container.appendChild(domElement)
-}
-
-const reactEleemnt={
-    type:"a",
-    props:{
-          href:"https://google.com",
-          traget:"_blank",
+const reactElement = {
+    type: 'a',
+    props: {
+        href: 'https://google.com',
+        target: '_blank'
     },
-    children:"Click on me to visit google"
+    children: 'Click me to visit google'
 }
 
-let root=document.getElementById("root")
-customRender(reactEleemnt,root)
+const mainContainer = document.querySelector('#root')
+
+customRender(reactElement, mainContainer)
