@@ -20,8 +20,11 @@ function App() {
       )
       console.log(updateTodos, editId)
       setAddTask(updateTodos)
+      localStorage.setItem("tasks",JSON.stringify(addTask))
+      
       setEditId(0)
       setSingleTask(" ")
+
       return
     }
     setAddTask([...addTask, singleTask])
